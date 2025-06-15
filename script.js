@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Data embedded directly in the script representing people information
   const peopleData = [
     { name: "Kapil", age: 25, location: "Darwin" },
-    { name: "Aisha", age: 22, location: "Sydney" },
+    { name: "Alisha", age: 22, location: "Sydney" },
     { name: "John", age: 30, location: "Melbourne" }
   ];
 
