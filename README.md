@@ -1,1 +1,1 @@
-“This single-page website allows users to enter a name in a form and then displays corresponding details loaded dynamically from a JSON file. It demonstrates basic JavaScript skills including DOM manipulation, event handling, and fetching local data.”
+“This single-page website allows users to enter a name in a form and displays corresponding details loaded dynamically from a JSON file. It demonstrates basic JavaScript skills including DOM manipulation, event handling, and fetching local data.”
