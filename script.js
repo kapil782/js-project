@@ -4,23 +4,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const nameInput = document.getElementById("nameInput");
   const autocompleteList = document.getElementById("autocomplete-list");
 
-  const peopleData = [
-    { name: "Kapil", age: 25, location: "Darwin", email: "kapil@example.com", contact: "+61 8 1234 5678" },
-    { name: "Alisha", age: 22, location: "Sydney", email: "alisha@example.com", contact: "+61 2 8765 4321" },
-    { name: "John", age: 30, location: "Melbourne", email: "john@example.com", contact: "+61 3 1122 3344" }
-  ];
+  let peopleData = [];
+
+  // Fetch data from people.json
+  fetch("people.json")
+    .then(response => response.json())
+    .then(data => {
+      peopleData = data;
+    })
+    .catch(error => {
+      console.error("Error loading people data:", error);
+    });
 
   // Autocomplete functionality
-  nameInput.addEventListener("input", function() {
+  nameInput.addEventListener("input", function () {
     const val = this.value;
     closeAllLists();
     if (!val) return false;
 
-    const matches = peopleData.filter(person => person.name.toLowerCase().includes(val.toLowerCase()));
+    const matches = peopleData.filter(person =>
+      person.name.toLowerCase().includes(val.toLowerCase())
+    );
+
     matches.forEach(match => {
       const item = document.createElement("div");
       item.textContent = match.name;
-      item.addEventListener("click", function() {
+      item.addEventListener("click", function () {
         nameInput.value = this.textContent;
         closeAllLists();
       });
