@@ -2,28 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Search Person Info</title>
-  <!-- Link to external CSS file for styling -->
+  <title>Person Info Finder</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Main heading for the page -->
-  <h1>Person Info Finder</h1>
-  <!-- Subtitle with more description -->
-  <p class="subtitle">Enter a person's full name below to find their age and location details.</p>
+  <header>
+    <h1>Person Info Finder</h1>
+    <nav>
+      <ul>
+        <li><a href="#search-section">Search</a></li>
+        <li><a href="#about-section">About Us</a></li>
+        <li><a href="#contact-section">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Form to input name for searching -->
-  <form id="searchForm">
-    <!-- Text input for user to enter a name -->
-    <input type="text" id="nameInput" placeholder="Enter full name here..." required />
-    <!-- Submit button to trigger search -->
-    <button type="submit">Search</button>
-  </form>
+  <main>
+    <section id="search-section">
+      <p class="subtitle">Enter a person's full name below to find their details.</p>
+      <form id="searchForm" autocomplete="off">
+        <input type="text" id="nameInput" placeholder="Enter full name here..." required />
+        <button type="submit">Search</button>
+        <div id="autocomplete-list" class="autocomplete-items"></div>
+      </form>
+      <div id="result"></div>
+    </section>
 
-  <!-- Div to display search results -->
-  <div id="result"></div>
+    <section id="about-section">
+      <h2>About Us</h2>
+      <p>We provide quick access to basic information about individuals. Our database is regularly updated to ensure accuracy.</p>
+    </section>
 
-  <!-- Link to external JavaScript file that contains the functionality -->
+    <section id="contact-section">
+      <h2>Contact</h2>
+      <p>Email: info@personinfofinder.com</p>
+      <p>Phone: +61 8 1234 5678</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Person Info Finder</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
