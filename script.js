@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let peopleData = [];
 
-  // Fetch data from people.json
+  // Load people.json
   fetch("people.json")
     .then(response => response.json())
     .then(data => {
@@ -14,16 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(error => {
       console.error("Error loading people data:", error);
+      resultDiv.innerHTML = `<p style="color:red;">Unable to load data. Please try again later.</p>`;
     });
 
-  // Autocomplete functionality
+  // Autocomplete suggestions
   nameInput.addEventListener("input", function () {
-    const val = this.value;
+    const val = this.value.trim().toLowerCase();
     closeAllLists();
-    if (!val) return false;
+    if (!val) return;
 
     const matches = peopleData.filter(person =>
-      person.name.toLowerCase().includes(val.toLowerCase())
+      person.name.toLowerCase().includes(val)
     );
 
     matches.forEach(match => {
@@ -44,11 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.addEventListener("click", function (e) {
-    if (e.target !== nameInput) {
-      closeAllLists();
-    }
+    if (e.target !== nameInput) closeAllLists();
   });
 
+  // On form submission
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     const inputName = nameInput.value.trim().toLowerCase();
@@ -58,7 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const person = peopleData.find(p => p.name.toLowerCase() === inputName);
+    // Find exact match
+    const person = peopleData.find(
+      p => p.name.toLowerCase() === inputName
+    );
 
     if (person) {
       resultDiv.innerHTML = `

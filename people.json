@@ -1,20 +1,20 @@
 [
   {
-    "name": "Kapil",
+    "name": "Kapil Kandel",
     "age": 25,
     "location": "Darwin",
     "email": "kapil@example.com",
     "contact": "+61 8 1234 5678"
   },
   {
-    "name": "Alisha",
+    "name": "Alisha Sharma",
     "age": 22,
     "location": "Sydney",
     "email": "alisha@example.com",
     "contact": "+61 2 8765 4321"
   },
   {
-    "name": "John",
+    "name": "John Smith",
     "age": 30,
     "location": "Melbourne",
     "email": "john@example.com",
